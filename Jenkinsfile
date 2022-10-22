@@ -1,11 +1,11 @@
 pipeline{
     agent any 
     stages {
-        stage('git checkout') {
-            steps {
-                  git branch: 'main', url: 'https://github.com/SudeepGowda55/Terraform_S3_Jenkins_AWS.git'
-            }
-        }
+        // stage('git checkout') {
+        //     steps {
+        //           git branch: 'main', url: 'https://github.com/SudeepGowda55/Terraform_S3_Jenkins_AWS.git'
+        //     }
+        // }
         stage('terraform init') {
             steps {
                 sh 'terraform init'
