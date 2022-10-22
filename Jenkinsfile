@@ -1,5 +1,8 @@
 pipeline{
     agent any 
+    environment {
+        AWS_DEFAULT_REGION="us-east-1"
+    }
     stages {
         // stage('git checkout') {
         //     steps {
@@ -8,10 +11,11 @@ pipeline{
         // }
         stage('terraform init') {
             steps {
-                sh 'terraform init'
+                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                   sh 'terraform init'
+                }
             }
         }
-        
         stage ('terraform format') {
             steps {
                 sh 'terraform fmt'
@@ -24,12 +28,16 @@ pipeline{
         }
         stage('terraform plan') {
            steps {
-                sh 'terraform plan'
+                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                    sh 'terraform plan'
+                }
             }
         }
         stage('terraform apply') {
             steps {
-                sh 'terraform apply --auto-approve'
+                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                    sh 'terraform apply --auto-approve'
+                }
             }
         }
     }
