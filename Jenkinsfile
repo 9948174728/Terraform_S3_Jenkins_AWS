@@ -11,9 +11,7 @@ pipeline{
         // }
         stage('terraform init') {
             steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
-                   sh 'terraform init'
-                }
+                sh 'terraform init'
             }
         }
         stage ('terraform format') {
