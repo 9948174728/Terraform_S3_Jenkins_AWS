@@ -26,14 +26,14 @@ pipeline{
         }
         stage('terraform plan') {
            steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                withCredentials([aws(credentialsId: 'AKIAWTYBVVGTZXFVP45T', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh 'terraform plan'
                 }
             }
         }
         stage('terraform apply') {
             steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                withCredentials([aws(credentialsId: 'AKIAWTYBVVGTZXFVP45T', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh 'terraform apply --auto-approve'
                 }
             }
