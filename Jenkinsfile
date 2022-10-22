@@ -14,11 +14,11 @@ pipeline{
                 sh 'terraform init'
             }
         }
-        stage ('terraform format') {
-            steps {
-                sh 'terraform fmt'
-            }
-        }
+        // stage ('terraform format') {
+        //     steps {
+        //         sh 'terraform fmt'
+        //     }
+        // }
         // stage ('terraform validate') {
         //     steps {
         //         sh 'terraform validate'
