@@ -16,9 +16,7 @@ pipeline{
         }
         stage('terraform plan') {
            steps {
-                withCredentials([aws(credentialsId: 'AKIAWTYBVVGTZXFVP45T', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh 'terraform plan'
-                }
+                sh 'terraform plan'
             }
         }
         stage('terraform apply') {
