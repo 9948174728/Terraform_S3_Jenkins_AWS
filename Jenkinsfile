@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage('git checkout') {
             steps {
-                  git branch: 'main', url: 'https://github.com/SudeepGowda55/terraform_S3.git'
+                  git branch: 'main', url: 'https://github.com/SudeepGowda55/Terraform_S3_Jenkins_AWS.git'
             }
         }
         stage('terraform init') {
