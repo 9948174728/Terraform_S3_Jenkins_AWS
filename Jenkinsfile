@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage('git checkout') {
             steps {
-                  git branch: 'master', url: 'https://github.com/SudeepGowda55/Terraform_S3_Jenkins_AWS.git'
+                  git branch: 'master', url: 'https://github.com/9948174728/Terraform_S3_Jenkins_AWS.git'
             }
         }
         stage('terraform init') {
@@ -23,14 +23,17 @@ pipeline{
         }
         stage('terraform plan') {
            steps {
-                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AKIAZN55HWCGUFJVDVIO
+', secretKeyVariable: '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')]) {
                     sh 'terraform plan'
                 }
             }
         }
         stage('terraform apply') {
             steps {
-                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AKIAZN55HWCGUFJVDVIO
+', secretKeyVariable: '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
+')]) {
                     sh 'terraform apply --auto-approve'
                 }
             }
