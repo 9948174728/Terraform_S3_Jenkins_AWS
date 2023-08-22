@@ -23,8 +23,7 @@ pipeline{
         }
         stage('terraform plan') {
            steps {
-                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AKIAZN55HWCGUFJVDVIO', secretKeyVariable: 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
-'')]) {
+                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AKIAZN55HWCGUFJVDVIO', secretKeyVariable: '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')]) {
                     sh 'terraform plan'
                 }
             }
