@@ -23,14 +23,14 @@ pipeline{
         }
         stage('terraform plan') {
            steps {
-                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AKIAZN55HWCGUFJVDVIO', secretKeyVariable: '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')]) {
+                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_KEY-ID')]) {
                     sh 'terraform plan'
                 }
             }
         }
         stage('terraform apply') {
             steps {
-                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AKIAZN55HWCGUFJVDVIO', secretKeyVariable: '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')]) {
+                withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_KEY-ID')]) {
                     sh 'terraform apply --auto-approve'
                 }
             }
