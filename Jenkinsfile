@@ -31,7 +31,7 @@ pipeline{
         stage('terraform apply') {
             steps {
                 withCredentials([aws(credentialsId: 'IAM-User-credentials', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_KEY-ID')]) {
-                    sh 'terraform apply --auto-approve'
+                    sh 'terraform apply --auto approve'
                 }
             }
         }
